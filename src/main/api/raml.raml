@@ -1,0 +1,47 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/d947a3bc-98cd-442b-8315-e8926590e503/ # 
+title: ramlFile
+version: 1.0
+/my-resource:
+  displayName: My Resource
+  description: this is my resource
+  get:
+    description: this is my get method
+    queryParameters:
+     name:
+      displayName: Your full name
+      type: string
+      description: Your full name
+      example: Amanuel Mecha        
+      required: false
+     DOB:
+      displayName: Your date of birth
+      type: integer
+      description: your DOB
+      example: 1990
+      required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {"Name":"Amanuel Mecha",
+              "DOB":1990}
+      400:
+        body:
+          application/json:
+            example:
+              {"msg":"Bad request"}  
+  post:
+    description: this is my post method
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {"msg": "created succefully"}
+  /sub-resource:
+    description: this is child resource
+
+                      
+
